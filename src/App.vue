@@ -59,9 +59,13 @@ body {
   justify-content: center;
   align-items: center;
   flex: 1;
-  border-right: 1px solid rgba(#000, 0.5);
+  border-bottom: 1px solid rgba(#000, 0.4);
   &:last-child {
     border: none;
+  }
+
+  @media all and (min-width: 768px) {
+    border-right: 1px solid rgba(#000, 0.4);
   }
 }
 
