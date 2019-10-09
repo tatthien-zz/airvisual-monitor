@@ -3,6 +3,18 @@ import axios from 'axios';
 const HOUR_IN_MILISECONDS = 3600000;
 
 export default {
+  props: {
+    city: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    state: {
+      type: String,
+      required: true,
+      default: '',
+    },
+  },
   data() {
     return {
       score: 0,
@@ -36,8 +48,8 @@ export default {
       // fetch data from AirVisual
       axios.get('https://api.airvisual.com/v2/city', {
         params: {
-          city: 'Ho Chi Minh city',
-          state: 'Ho Chi Minh city',
+          city: this.city,
+          state: this.state,
           country: 'Vietnam',
           key: '602f69da-b2ed-494d-a7fa-be391675c8da',
         },
@@ -54,8 +66,8 @@ export default {
   },
   render() {
     const slot = this.$scopedSlots.default({
-      city: 'Ho Chi Minh city',
-      state: 'Ho Chi Minh city',
+      city: this.city,
+      state: this.state,
       country: 'Vietnam',
       score: this.score,
       color: this.color,
